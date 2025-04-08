@@ -31,6 +31,24 @@ def list_all():
         print(f"Year Released : {song['year']}")
         print_separator()
 
+def add_song():
+    print("\n======= Add Song =======")
+    song_number = song_number_input()
+    if song_number is None:
+        return 
+    
+    song = {
+        "song_number": song_number,
+        "title": input("Enter song title: "),
+        "artist": input("Enter artist name: "),
+        "genre": input("Enter genre: "),
+        "year": input("Enter year released: ")
+    }
+    
+    song_book.append(song)
+    print_separator()
+    print("Song added successfully!")
+
 def display_menu():
     print("\n==== SONG BOOK MENU ====")
     print(" 1. List all songs")
@@ -40,7 +58,6 @@ def display_menu():
     print(" 5. Search for a song")
     print(" 6. Exit")
     return input("\nEnter your choice: ").strip()
-
 
 choice = display_menu()
 print_separator()
