@@ -89,6 +89,28 @@ def delete_song():
     print("\nInvalid song number.")
     print_separator()
 
+def search_song():
+    print("\n====== Search Song =====")
+    song_number = input("Enter song number to search: ").strip()
+    if not song_number.isdigit():
+        print("Invalid input. Song number must be numeric.")
+        print_separator()
+        return
+
+    for song in song_book:
+        if song["song_number"] == song_number:
+            print("\nSong found:")
+            print(f"\nSong Number   : {song['song_number']}")
+            print(f"Title         : {song['title']}")
+            print(f"Artist        : {song['artist']}")
+            print(f"Genre         : {song['genre']}")
+            print(f"Year Released : {song['year']}")
+            print_separator()
+            return
+        
+    print("\nSong not found.")
+    print_separator()
+
 def display_menu():
     print("\n==== SONG BOOK MENU ====")
     print(" 1. List all songs")
