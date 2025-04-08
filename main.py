@@ -7,10 +7,29 @@ EXIT = '6'
 
 song_book = []
 
-
 def print_separator():
     print("\n========================")
 
+def song_number_input():
+    song_number = input("Enter song number: ").strip()
+    if not song_number.isdigit():
+        print("Invalid input. Song number must be numeric.")
+        print_separator()
+        return None
+    return song_number
+
+def list_all():
+    if not song_book:
+        print("\nNo songs in the song book.")
+        return
+    print("\n====  List of Songs ====")
+    for song in song_book:
+        print(f"\nSong Number   : {song['song_number']}")
+        print(f"Title         : {song['title']}")
+        print(f"Artist        : {song['artist']}")
+        print(f"Genre         : {song['genre']}")
+        print(f"Year Released : {song['year']}")
+        print_separator()
 
 def display_menu():
     print("\n==== SONG BOOK MENU ====")
