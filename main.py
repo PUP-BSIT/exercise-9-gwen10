@@ -49,6 +49,28 @@ def add_song():
     print_separator()
     print("Song added successfully!")
 
+def update_song():
+    print("\n===== Update Song =====")
+    song_number = input("\nEnter the song number to update: ").strip()
+    if not song_number.isdigit():
+        print("Invalid input. Song number must be numeric.")
+        return
+
+    for song in song_book:
+        if song["song_number"] == song_number:
+            print("\nYou can now enter the new details.")
+            song["title"] = input(f"Title ({song['title']}): ")
+            song["artist"] = input(f"Artist ({song['artist']}): ")
+            song["genre"] = input(f"Genre ({song['genre']}): ")
+            song["year"] = input(f"Year Released ({song['year']}): ")
+
+            print_separator()
+            print("\nSong updated successfully.")
+            return
+
+    print("\nSong not found.")
+    print_separator()
+
 def display_menu():
     print("\n==== SONG BOOK MENU ====")
     print(" 1. List all songs")
