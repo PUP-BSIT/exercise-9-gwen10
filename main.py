@@ -71,6 +71,24 @@ def update_song():
     print("\nSong not found.")
     print_separator()
 
+def delete_song():
+    print("\n====== Delete Song =====")
+    song_number = input("Enter the song number to delete: ").strip()
+    if not song_number.isdigit():
+        print("Invalid input. Song number must be numeric.")
+        print_separator()
+        return
+    
+    for song in song_book:
+        if song["song_number"] == song_number:
+            song_book.remove(song)
+            print_separator()
+            print(f"\nSong #{song_number} deleted successfully.")
+            return
+        
+    print("\nInvalid song number.")
+    print_separator()
+
 def display_menu():
     print("\n==== SONG BOOK MENU ====")
     print(" 1. List all songs")
